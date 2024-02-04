@@ -20,7 +20,7 @@ class User(db.Model):
 @app.route("/")
 def index():
     users = User.query.all()
-    users = []
+    print(users)
     return render_template("register.html", users=users)
 
 
