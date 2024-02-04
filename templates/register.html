@@ -67,5 +67,7 @@
             {% endfor %}
         </ul>
     {% endif %}
+    <img src="{{url_for('get_image', filename='12.png')}}">
+    <a href="{{url_for('get_image', filename='12.png')}}"><button>Download </button></a>
 </body>
 </html>

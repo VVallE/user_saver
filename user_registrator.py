@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, send_file
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -41,6 +41,12 @@ def add_user():
     db.session.add(new_user)
     db.session.commit()
     return redirect("/")
+
+
+@app.route("/image/<filename>")
+def get_image(filename):
+    image_path = f"images/{filename}"
+    return send_file(image_path, mimetype="image/png")
 
 
 if __name__ == "__main__":
